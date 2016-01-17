@@ -1,0 +1,25 @@
+<header class='navbar navbar-fixed-top navbar-default'>
+    <div class="container" style="padding: 0; margin: 0">
+      
+     
+      <%= link_to image_tag("logo.png", alt: "rss feed", height: 100, width: 120), root_path, id: 'hlogo' %>
+      <% if true %>
+          <div class="nav_item">
+          <%= link_to 'Sign In', root_path %>
+        </div>
+    
+      <% else %>
+      <div class="nav_item">
+        <%= link_to 'My Profile', root_path %>
+      </div>
+      <div class="nav_item">
+        <%= link_to 'Sign Out', root_path, method: :delete %>
+      </div>
+      <% end %>
+      <div class="nav_item">
+        <%= link_to 'Contact Us', root_path %>
+      </div>
+
+      </div>
+    </div>
+  </header>

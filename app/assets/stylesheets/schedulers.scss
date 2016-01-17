@@ -1,3 +1,30 @@
 // Place all the styles related to the Schedulers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.nav_item{
+    margin-right: 25px;
+    padding-right: 15px;
+    float: right;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: white;
+    text-transform: none;
+    font-size: 1.3em;
+    font-family: 'Questrial', sans-serif;
+}
+
+#hlogo{
+    float: left;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+
+.jumbotron{
+    margin-top: 100px;
+    text-align: center;
+}
+
+.navbar{
+    backgrouncolor: black;
+}
