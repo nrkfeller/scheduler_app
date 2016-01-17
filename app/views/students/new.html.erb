@@ -1,0 +1,19 @@
+<div id="sign-up-form" class="col-xs-3">
+  <%= form_for(@student) do |f| %>
+    <%= f.text_field :first_name, placeholder: "First Name"%>
+
+    <%= f.text_field :last_name, placeholder: "Last Name" %>
+
+    <%= f.text_field :email, placeholder: "Email address" %>
+    <%= f.text_field :student_id, placeholder: "Student Id"%>
+
+    <%= f.text_field :email, placeholder: "Email Address" %>
+
+    <%= f.select :department, Student.departments.each {|d| d}%>
+    <%= f.password_field :password, placeholder: "Password" %>
+
+    <%= f.password_field :password_confirmation, placeholder: "Confirm The Password" %>
+
+    <%= f.submit "Create The Account", class: "btn btn-large btn-primary"%>
+  <% end %>
+</div>
