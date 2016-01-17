@@ -42,7 +42,7 @@
 
 }
 
-
+// button class
 .btn {
   background: #3498db;
   background-image: -webkit-linear-gradient(top, #3498db, #a0c4db);
@@ -65,6 +65,7 @@
   
 }
 
+// button hover class
 .btn:hover {
   background: #3cb0fd;
   background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
@@ -74,5 +75,4 @@
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
 }
-=======
->>>>>>> b75d93ba04dec808319946d8e4ff8956670d982c
+
