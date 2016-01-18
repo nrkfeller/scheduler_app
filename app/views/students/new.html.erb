@@ -1,19 +1,24 @@
-<div id="sign-up-form" class="col-xs-3">
-  <%= form_for(@student) do |f| %>
-    <%= f.text_field :first_name, placeholder: "First Name"%>
 
-    <%= f.text_field :last_name, placeholder: "Last Name" %>
+<div id="signup-page-body" class="container">
+  <h1 id="signup-page-title" class="center-block">Please sign up!</h1>
 
-    <%= f.text_field :email, placeholder: "Email address" %>
-    <%= f.text_field :student_id, placeholder: "Student Id"%>
+  <div id="signup-body">
+    <%= form_for(@student) do |f| %>
+      <%= f.text_field :first_name, placeholder: "First Name"%>
 
-    <%= f.text_field :email, placeholder: "Email Address" %>
+      <%= f.text_field :last_name, placeholder: "Last Name" %>
 
-    <%= f.select :department, Student.departments.each {|d| d}%>
-    <%= f.password_field :password, placeholder: "Password" %>
+      <%= f.text_field :email, placeholder: "Email address" %>
+      <%= f.text_field :student_id, placeholder: "Student Id"%>
 
-    <%= f.password_field :password_confirmation, placeholder: "Confirm The Password" %>
+      <%= f.text_field :email, placeholder: "Email Address" %>
 
-    <%= f.submit "Create The Account", class: "btn btn-large btn-primary"%>
-  <% end %>
+      <%= f.select :department, Student.departments.each {|d| d}%>
+      <%= f.password_field :password, placeholder: "Password" %>
+
+      <%= f.password_field :password_confirmation, placeholder: "Confirm The Password" %>
+
+      <%= f.submit "Create The Account", class: "btn btn-large btn-primary"%>
+    <% end %>
+  </div>
 </div>

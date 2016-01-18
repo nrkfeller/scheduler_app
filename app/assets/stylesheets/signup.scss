@@ -1,0 +1,25 @@
+#signup-page-body{
+
+  #signup-page-title{
+    color: rgba(136, 105, 153, 0.6);
+    margin: 20px;
+    text-align: center;
+  }
+  #signup-body{
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+    form{
+      input {
+        width: 100%;
+        margin: 5px;
+        height: 30px;
+      }
+      div{
+        margin-left: 2.5px;
+        margin-right: 2.5px;
+        width: 100%;
+      }
+    }
+  }
+}

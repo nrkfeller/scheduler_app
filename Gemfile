@@ -11,6 +11,9 @@ gem 'sass-rails', '~> 5.0'
 #bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 
+#selectize js
+gem "selectize-rails"
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
