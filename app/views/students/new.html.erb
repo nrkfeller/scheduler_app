@@ -4,19 +4,33 @@
 
   <div id="signup-body">
     <%= form_for(@student) do |f| %>
-      <%= f.text_field :first_name, placeholder: "First Name"%>
+      <label for="student_first_name">First Name</label>
+      <%= render_sign_up_errors(@first_name_errors) if @first_name_errors%>
+      <%= f.text_field :first_name, placeholder: "*"%>
 
-      <%= f.text_field :last_name, placeholder: "Last Name" %>
+      <label for="student_last_name">Last name</label>
+      <%= render_sign_up_errors(@last_name_errors) if @last_name_errors%>
+      <%= f.text_field :last_name, placeholder: "*" %>
 
+      <label for="student_email">Email</label>
+      <%= render_sign_up_errors(@email_errors) if @email_errors%>
       <%= f.text_field :email, placeholder: "Email address" %>
+
+      <label for="student_id">Student Id</label>
+      <%= render_sign_up_errors(@student_id_errors) if @student_id_errors%>
       <%= f.text_field :student_id, placeholder: "Student Id"%>
 
-      <%= f.text_field :email, placeholder: "Email Address" %>
+      <label for="student_department">Department</label>
 
       <%= f.select :department, Student.departments.each {|d| d}%>
-      <%= f.password_field :password, placeholder: "Password" %>
 
-      <%= f.password_field :password_confirmation, placeholder: "Confirm The Password" %>
+      <label for="student_password">Password</label>
+      <%= render_sign_up_errors(@password_errors) if @password_errors%>
+      <%= f.password_field :password, placeholder: "*" %>
+
+      <label for="student_password_confirmation">Password confirm</label>
+      <%= render_sign_up_errors(@password_confirmation_errors) if @password_confirmation_errors%>
+      <%= f.password_field :password_confirmation, placeholder: "*" %>
 
       <%= f.submit "Create The Account", class: "btn btn-large btn-primary"%>
     <% end %>

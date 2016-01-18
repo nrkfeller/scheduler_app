@@ -10,9 +10,10 @@ class StudentsController < ApplicationController
       redirect_to :root
     else
       @student.errors.to_hash.each do |field, error|
-        instance_variable_set('@' + field.to_s + '_error', error)
+        instance_variable_set('@' + field.to_s + '_errors', error)
       end
-      render 'new'
+      render action: 'new'
+
     end
   end
 
