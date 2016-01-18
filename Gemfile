@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 
 gem 'rails', '4.2.4'
-gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem "selectize-rails"
@@ -15,6 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'guard-rspec', require: false
   gem 'spring-commands-rspec'
   gem 'byebug'
@@ -26,9 +26,12 @@ group :development do
   gem 'spring'
 end
 
-
 group :test do
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'capybara', '2.4.4'
+end
+
+group :production do
+  gem 'pg'
 end
