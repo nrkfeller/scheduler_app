@@ -22,14 +22,14 @@ RSpec.feature "Users signup" do
         fill_in "Last name", with: ""
         fill_in "Student ID", with: "5980925"
         fill_in "Email", with: "user@example@com"
-        fill_in "Password", with: "password"
-        fill_in "Password confirmation", with: "password1"
+        fill_in "Password", with: "pass"
+        fill_in "Password confirmation", with: "pass"
         click_button "Sign up"
         expect(page).to have_content("First name can't be blank")
         expect(page).to have_content("Last name can't be blank")
-        expect(page).to have_content("Student ID must be exactly 8 digits")
-        expect(page).to have_content("Email address must be format: john@example.com")
-        expect(page).to have_content("Password does not match")
+        expect(page).to have_content("Student ID is invalid")
+        expect(page).to have_content("Email address is invalid")
+        expect(page).to have_content("Password is too short")
         
         visit "/"
         expect(page).not_to have_content("John Doe")
