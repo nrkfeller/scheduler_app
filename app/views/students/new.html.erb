@@ -1,6 +1,6 @@
 
 <div id="signup-page-body" class="container">
-  <h1 id="signup-page-title" class="center-block">Please sign up!</h1>
+  <h1 id="signup-page-title" class="center-block">Please Sign Up!</h1>
 
   <div id="signup-body">
     <%= form_for(@student) do |f| %>
@@ -19,20 +19,24 @@
       <label for="student_id">Student Id</label>
       <%= render_sign_up_errors(@student_id_errors) if @student_id_errors%>
       <%= f.text_field :student_id, placeholder: "Student Id"%>
-
-      <label for="student_department">Department</label>
+      
+      <p></p>
+      
+      <label for="student_department">Department&nbsp&nbsp&nbsp</label>
 
       <%= f.select :department, Student.departments.each {|d| d}%>
-
+      
+      <p></p>
+      
       <label for="student_password">Password</label>
       <%= render_sign_up_errors(@password_errors) if @password_errors%>
       <%= f.password_field :password, placeholder: "*" %>
 
-      <label for="student_password_confirmation">Password confirm</label>
+      <label for="student_password_confirmation">Confirm Password</label>
       <%= render_sign_up_errors(@password_confirmation_errors) if @password_confirmation_errors%>
       <%= f.password_field :password_confirmation, placeholder: "*" %>
 
-      <%= f.submit "Create The Account", class: "btn btn-large btn-primary"%>
+      <%= f.submit "Create Account", class: "btn btn-large btn-primary"%>
     <% end %>
     <p>&nbsp&nbsp<%= link_to "Home", root_path %></p>
   </div>
