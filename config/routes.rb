@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   root to: 'schedulers#home'
   resources :students
   match 'signup', to: 'students#new', via: :get
+  
+  get 'schedulers/mysequence'
+  resources :mysequence
+  
+  
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
