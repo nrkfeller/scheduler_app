@@ -19,15 +19,13 @@
       <label for="student_id">Student Id</label>
       <%= render_sign_up_errors(@student_id_errors) if @student_id_errors%>
       <%= f.text_field :student_id, placeholder: "Student Id"%>
-      
-      <p></p>
-      
+
+
       <label for="student_department">Department&nbsp&nbsp&nbsp</label>
 
       <%= f.select :department, Student.departments.each {|d| d}%>
-      
-      <p></p>
-      
+
+
       <label for="student_password">Password</label>
       <%= render_sign_up_errors(@password_errors) if @password_errors%>
       <%= f.password_field :password, placeholder: "*" %>
