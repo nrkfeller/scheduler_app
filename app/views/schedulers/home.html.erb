@@ -9,8 +9,9 @@
   
     <%# use id, not class%>
     <div id="btn-group">
-      <button type="button" class="btn btn-hover">My Sequence</button>
+      <%=link_to "My Sequence", schedulers_mysequence_path, class: "btn btn-default sample-button"%>
       <button type="button" class="btn btn-hover">My Profile</button>
       <button type="button" class="btn btn-hover">My Schedule</button>
     </div>
 </div>
+

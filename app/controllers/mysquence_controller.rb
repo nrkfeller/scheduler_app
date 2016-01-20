@@ -1,0 +1,2 @@
+class MysquenceController < ApplicationController
+end

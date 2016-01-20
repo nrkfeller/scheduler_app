@@ -1,3 +1,25 @@
 // Place all the styles related to the Students controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+#student-info-container{
+  background-color: rgba(207, 202, 199, 0.2);
+  height: 600px;
+
+  div{
+    padding: 20px;
+    margin: 10px;
+    button{
+      margin-left: 15%;
+      margin-right: 15%;
+      width: 70%;
+    }
+  }
+  #student-info-name{
+    span{
+      color: rgba(119, 206, 204, 0.9);
+    }
+  }
+}

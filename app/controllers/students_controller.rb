@@ -7,13 +7,19 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
     if @student.save
       flash[:success] = 'Welcome to my page'
-      redirect_to :root
+      redirect_to :@student
     else
       @student.errors.to_hash.each do |field, error|
-        instance_variable_set('@' + field.to_s + '_error', error)
+        instance_variable_set('@' + field.to_s + '_errors', error)
       end
-      render 'new'
+      render action: 'new'
+
     end
+  end
+
+
+  def show
+    @student = Student.find_by_id(params[:id])
   end
 
   private
