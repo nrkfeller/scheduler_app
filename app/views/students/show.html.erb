@@ -1,0 +1,84 @@
+<div id="student-info-container" class='col-xs-4'>
+  <div id="student-info-name">
+    <h1>
+      <span id="student-info-first-name"><%= @student.first_name.upcase %></span>
+      <span id="student-info-last-name"><%=@student.last_name.upcase%></span>
+    </h1>
+  </div>
+  <div id="student-info-id">
+    <span><b>Student id </b></span>
+    <span style="float:right"><%= @student.student_id %></span>
+  </div>
+  <div id="student-info-email">
+    <span><b>Email </b></span>
+    <span style="float:right;"><%= @student.email %></span>
+  </div>
+  <div id="student-info-department">
+    <span><b>Department </b></span>
+    <span style="float:right"><%= @student.department %></span>
+  </div>
+  <div>
+    <button>Change password</button>
+  </div>
+
+</div>
+
+<div class='col-xs-8'>
+  <h1>Record</h1>
+  <table id="student-record" class="cell-border hover">
+    <thead>
+        <tr>
+            <th>Course Name</th>
+            <th>Course Number</th>
+            <th>Grade</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Coen</td>
+            <td>346</td>
+            <td>A+</td>
+            <td>Pass</td>
+        </tr>
+        <tr>
+            <td>Soen</td>
+            <td>341</td>
+            <td>A+</td>
+            <td>Pass</td>
+        </tr>
+        <tr>
+            <td>Coen</td>
+            <td>346</td>
+            <td>A+</td>
+            <td>Pass</td>
+        </tr>
+        <tr>
+            <td>Soen</td>
+            <td>341</td>
+            <td>A+</td>
+            <td>Pass</td>
+        </tr>
+        <tr>
+            <td>Coen</td>
+            <td>346</td>
+            <td>A+</td>
+            <td>Pass</td>
+        </tr>
+        <tr>
+            <td>Soen</td>
+            <td>341</td>
+            <td>A+</td>
+            <td>Pass</td>
+        </tr>
+        <tfoot>
+          <tr>
+              <th>Course Name</th>
+              <th>Course Number</th>
+              <th>Grade</th>
+              <th>Status</th>
+          </tr>
+        </tfoot>
+    </tbody>
+</table>
+</div>
