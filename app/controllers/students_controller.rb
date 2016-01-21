@@ -7,7 +7,7 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
     if @student.save
       flash[:success] = 'Welcome to my page'
-      redirect_to :@student
+      redirect_to @student
     else
       @student.errors.to_hash.each do |field, error|
         instance_variable_set('@' + field.to_s + '_errors', error)
