@@ -17,6 +17,8 @@ RSpec.feature "User sign in" do
         fill_in "Email", with @john.email
         fill_in "Password", with @john.password
         click_button "Sign In"
+        
+        expect(page).to have_content("Signed in as #{@john.first_name}")
     end
     
     scenario "with invalid credentials" do
