@@ -2,16 +2,19 @@ Rails.application.routes.draw do
 
   root to: 'schedulers#home'
   resources :students
-  match 'signup', to: 'students#new', via: :get
+  resources :sessions, only: [:new, :create, :destroy]
+  match '/signup', to: 'students#new', via: :get
+  match '/signin', to: 'sessions#new', via: :get
+  match '/signout', to: 'sessions#destroy', via: :delete
 
   get 'students/:id', to: 'students#show'
 
   get 'schedulers/mysequence'
   resources :mysequence
-  
+
   match 'contacts', to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]
-  
+
 
 
 

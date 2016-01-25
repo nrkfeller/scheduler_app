@@ -1,26 +1,21 @@
-<header class='navbar navbar-fixed-top navbar-default'>
-    <div class="container">
-      
-     
-      <%= link_to image_tag("picaso_resized.png", alt: "rss feed", height: 100, width: 120), root_path, id: 'hlogo' %>
-      <% if true %>
-          <div class="nav_item">
-          <%= link_to 'Sign In', root_path %>
-          <%= link_to 'Sign Up', new_student_path %>
-        </div>
-    
-      <% else %>
+<div class='navbar navbar-fixed-top navbar-default'>
+  <div class="container">
+    <%= link_to image_tag("picaso_resized.png", alt: "rss feed", height: 100, width: 120), root_path, id: 'hlogo' %>
+    <% if signed_in? %>
       <div class="nav_item">
-        <%= link_to 'My Profile', root_path %>
-      </div>
-      <div class="nav_item">
-        <%= link_to 'Sign Out', root_path, method: :delete %>
-      </div>
-      <% end %>
-      <div class="nav_item">
-        <%= link_to 'Contact Us', contacts_path %>
+        <%= link_to 'Sign Out', signout_path, method: "delete" %>
       </div>
 
+    <% else %>
+      <div class="nav_item">
+        <%= link_to 'Sign In', signin_path %>
+        <%= link_to 'Sign Up', signup_path %>
       </div>
+    <% end %>
+    <div class="nav_item">
+      <%= link_to 'Contact Us', contacts_path %>
     </div>
-  </header>
+
+    </div>
+  </div>
+</div>

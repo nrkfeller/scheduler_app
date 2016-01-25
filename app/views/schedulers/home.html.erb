@@ -1,12 +1,10 @@
-
+<%= render partial: "layouts/header" %>
 <div class="jumbotron">
 
 
     <div>
       <img id="cmark"/>
-    </div>    
-  
-  
+    </div>
     <%# use id, not class%>
     <div id="btn-group">
       <%=link_to "My Sequence", schedulers_mysequence_path, class: "btn btn-default sample-button"%>
@@ -14,4 +12,3 @@
       <button type="button" class="btn btn-hover">My Schedule</button>
     </div>
 </div>
-

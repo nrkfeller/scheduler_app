@@ -1,6 +1,9 @@
 class Student < ActiveRecord::Base
   has_secure_password
 
+  before_save { |student| student.email = email.downcase}
+  before_save :create_remember_token
+
   PROGRAM = ['Computer Engineering', 'Electrical Engineering', 'Computer Science', 'Software Engineering']
   VALID_STUDENT_ID_REGEX = /\A\d{8}\z/
   VALID_EMAIL_REGEX = /\A\w+@concordia.ca\z/
@@ -16,4 +19,9 @@ class Student < ActiveRecord::Base
   def self.departments
     return PROGRAM
   end
+
+  private
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
 end
