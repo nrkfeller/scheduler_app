@@ -1,8 +1,16 @@
 # User Manual
 
-This will be our user manual markdown file. Lists of things that we will need to write for this user manual in a general sense:
+This will be our user manual markdown file. 
+
+
+Lists of things that we will need to write for this user manual in a general sense:
+
+
 
 ![our logo](https://schedulerconcordia.herokuapp.com/assets/picaso_resized-f0eb6bd17c89028c84e46d4d0bb9306b56b06ed86db81fc92c2f6e6e37ac33a7.png)
+
+
+
 1. General Information
     1. System Overview
     2. Project References
