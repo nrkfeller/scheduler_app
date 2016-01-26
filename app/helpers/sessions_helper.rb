@@ -1,7 +1,7 @@
 module SessionsHelper
 
   def sign_in(student)
-    cookies.permanent[:remenber_token] = student.remember_token
+    cookies.permanent[:remember_token] = student.remember_token
     self.current_student = student
   end
 
