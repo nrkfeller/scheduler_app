@@ -8,4 +8,6 @@ _This is subject to change_
 
 ### **Design description**
 
-Here we will describe the systems design, its basic front end functionality and explain the choices we've made in terms of the design.
+Here we will describe the systems design, its basic front end functionality and explain the choices we've made in terms of the design. 
+
+We must also make a table for each of us discussing what weve contributed to the project. This can take about 10 pages.
