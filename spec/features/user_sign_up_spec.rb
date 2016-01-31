@@ -6,13 +6,13 @@ RSpec.feature "Users signup" do
         fill_in "First Name", with: "John"
         fill_in "Last Name", with: "Doe"
         fill_in "Student ID", with: "25980925"
-        fill_in "Email", with: "user@example.com"
+        fill_in "Email", with: "user@concordia.ca"
         fill_in "Password", with: "password"
         fill_in "Confirm Password", with: "password"
         click_button "Create Account"
         
         visit "/"
-        expect(page).to have_content("John Doe")
+        expect(page).to have_content("Signed in as John")
     end
     
     scenario "with invalid credentials" do

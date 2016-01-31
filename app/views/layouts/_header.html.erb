@@ -3,6 +3,7 @@
     <%= link_to image_tag("picaso_resized.png", alt: "rss feed", height: 100, width: 120), root_path, id: 'hlogo' %>
     <% if signed_in? %>
       <div class="nav_item">
+        <%= link_to "Signed in as " + current_student.first_name, root_path %>
         <%= link_to 'Sign Out', signout_path, method: "delete" %>
       </div>
 

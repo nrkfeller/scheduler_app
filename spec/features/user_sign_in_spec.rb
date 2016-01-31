@@ -3,32 +3,34 @@ require 'rails_helper'
 RSpec.feature "User sign in" do
     
     before do
-        @john = Student.create(first_name: "john",
-        last_name: "doe",
-        student_id: 12345678,
-        department: "Computer Engineering",
-        email: "john@concordia.ca",
-        password: "password")
+        @john = Student.create!(first_name: "John",
+            last_name: "doe",
+            student_id: 11111133,
+            department: "Computer Engineering",
+            email: "john@concordia.ca",
+            password: "password",
+            password_confirmation: "password")
     end
     
     scenario "with valid credentials" do
         visit "/"
         click_link "Sign In"
-        fill_in "Email", with @john.email
-        fill_in "Password", with @john.password
+        fill_in "Email", with: "john@concordia.ca"
+        fill_in "Password", with: "password"
         click_button "Sign In"
         
-        expect(page).to have_content("Signed in as #{@john.first_name}")
+        visit "/"
+        expect(page).to have_content("Signed in as John")
     end
     
     scenario "with invalid credentials" do
         visit "/"
         click_link "Sign In"
-        fill_in "Email", with @john.email
-        fill_in "Password", with "potato123"
+        fill_in "Email", with: "john@concordia.ca"
+        fill_in "Password", with: "potato123"
         click_button "Sign In"
         
-        expect(page).to have_content("Incorrect password")
+       expect(page).not_to have_content("Signed in as John")
     end
     
 end
