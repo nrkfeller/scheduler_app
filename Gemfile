@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.5'
+
 gem 'rails', '4.2.4'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -34,5 +36,5 @@ group :test do
 end
 
 group :production do
-  #gem 'pg'
+  gem 'pg'
 end
