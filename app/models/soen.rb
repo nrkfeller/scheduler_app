@@ -1,2 +1,0 @@
-class Soen < CourseDatum
-end

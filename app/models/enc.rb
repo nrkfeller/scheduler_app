@@ -1,2 +1,0 @@
-class Enc < CourseDatum
-end

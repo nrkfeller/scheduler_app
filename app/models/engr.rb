@@ -1,2 +1,0 @@
-class Engr < CourseDatum
-end

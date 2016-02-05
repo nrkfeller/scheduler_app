@@ -33,16 +33,15 @@ class CourseDatum < ActiveRecord::Base
 
 
   private
-    def table_exist?(table_name)
-      return COURSE_TYPE.include?(table_name.camelize)
+    def table_exist?(course_name)
+      return COURSE_TYPE.include?(course_name.camelize)
     end
 
     def get_course(pre)
-      course_name = /\w{4}/.match(pre)[0].camelize
-      course_number = /\d{3}/.match(pre)[0].to_i
+      course_name = /\w{4}/.match(pre)[0].downcase.camelize
+      course_number = /\d{3}/.match(pre)[0]
       if table_exist?(course_name)
-        table_name = eval(course_name)
-        course = table_name.find_by_num(course_number)
+        course = CourseDatum.where(name: course_name, num: course_number).last
         return course
       end
       return nil
