@@ -1,0 +1,2 @@
+class Soen < CourseDatum
+end

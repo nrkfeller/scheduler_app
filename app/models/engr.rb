@@ -1,0 +1,2 @@
+class Engr < CourseDatum
+end

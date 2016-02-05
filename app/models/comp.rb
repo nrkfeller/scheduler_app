@@ -1,0 +1,2 @@
+class Comp < CourseDatum
+end
