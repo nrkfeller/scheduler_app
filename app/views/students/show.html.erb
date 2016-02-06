@@ -23,20 +23,33 @@
 
 </div>
 
-<div class='col-xs-8'>
-  <h1>Record</h1>
-  <table id="student-record" class="cell-border hover">
-    <thead>
+
+<div id="student-profile-options" class="col-xs-8">
+  <div class="btn-group btn-group-justified student-profile-buttons" role="group" aria-label="...">
+    <div class="btn-group" role="group">
+      <button id="student-record-button" type="button" class="btn btn-default">Student Record</button>
+    </div>
+    <div class="btn-group" role="group">
+      <button id="student-sequence-button" type="button" class="btn btn-default">Student Sequence</button>
+    </div>
+    <div class="btn-group" role="group">
+      <button id="student-schedule-button" type="button" class="btn btn-default">Student Schedule</button>
+    </div>
+  </div>
+
+  <div id="student-record-table" class='col-xs-12 student-profile-table'>
+    <table class="cell-border hover">
+      <thead>
         <tr>
-            <th>Year</th>
-            <th>Semester</th>
-            <th>Course Name</th>
-            <th>Course Number</th>
-            <th>Grade</th>
-            <th>Status</th>
+          <th>Year</th>
+          <th>Semester</th>
+          <th>Course Name</th>
+          <th>Course Number</th>
+          <th>Grade</th>
+          <th>Status</th>
         </tr>
-    </thead>
-    <tbody>
+      </thead>
+      <tbody>
         <tr>
             <td>2016</td>
             <td>Winter</td>
@@ -46,13 +59,40 @@
             <td>Pass</td>
         </tr>
         <tr>
-            <td>2016</td>
-            <td>Winter</td>
-            <td>Soen</td>
-            <td>341</td>
-            <td>A+</td>
-            <td>Pass</td>
+          <td>2016</td>
+          <td>Winter</td>
+          <td>Soen</td>
+          <td>341</td>
+          <td>A+</td>
+          <td>Pass</td>
         </tr>
-    </tbody>
-</table>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div id="student-course-sequence-table" class="col-xs-12 student-profile-table">
+    <table class="cell-border hover">
+      <thead>
+        <tr>
+            <th>Name</th>
+            <th>Number</th>
+            <th>Title</th>
+            <th>Credit</th>
+            <th>Prerequisite</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @courses.each do |course| %>
+          <tr>
+            <th><%= course.name %></th>
+            <th><%= course.num %></th>
+            <th><%= course.title %></th>
+            <th><%= course.credit %></th>
+            <th><%= course.prereg %></th>
+            </tr>
+          <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
