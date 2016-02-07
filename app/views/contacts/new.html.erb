@@ -14,11 +14,11 @@
       </div>
       
       <div class="col-md-12" style="margin-top: 20px; margin-bottom: 25px">
-          <%= f.text_area :message, class: "form-control", autofocus: true, id: "contact-content", placeholder: "Message" %>
+          <%= f.text_area :message, class: "form-control", autofocus: true, id: "contact_content", placeholder: "Message" %>
       </div>
 
       </br>
-      <%=  f.button :button, 'Send message', :class=> "btn btn-primary" do  %>
+      <%=  f.button :button, 'Send message', :class=> "btn btn-primary", :id=> "send_message" do  %>
     <span class="glyphicon glyphicon-envelope"></span> Send Message
  <% end %>
     </div>
