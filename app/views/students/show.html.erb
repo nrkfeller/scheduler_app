@@ -50,22 +50,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-            <td>2016</td>
-            <td>Winter</td>
-            <td>Coen</td>
-            <td>346</td>
-            <td>A+</td>
-            <td>Pass</td>
-        </tr>
-        <tr>
-          <td>2016</td>
-          <td>Winter</td>
-          <td>Soen</td>
-          <td>341</td>
-          <td>A+</td>
-          <td>Pass</td>
-        </tr>
+        <% @student_record.each do |course| %>
+          <tr>
+            <td><%=course[:year]%></td>
+            <td><%=course[:semester]%></td>
+            <td><%=course[:course_name]%></td>
+            <td><%=course[:course_number]%></td>
+            <td><%=course[:grade]%></td>
+            <td><%=course[:status]%></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
