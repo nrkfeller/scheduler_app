@@ -1,20 +1,20 @@
 <div class='navbar navbar-fixed-top navbar-default'>
   <div class="container">
 
-    <%= link_to image_tag("picaso_resized.png", alt: "rss feed", height: 100, width: 120), root_path, id: 'hlogo' %>
+    <%= link_to image_tag("picaso_resized.png", alt: "rss feed", height: 80, width: 100), root_path, id: 'hlogo' %>
     <% if signed_in? %>
-      <div class="nav_item">
+      <div class="nav_item session_link" >
         <%= link_to "Signed in as " + current_student.first_name, root_path %>
         <%= link_to 'Sign Out', signout_path, method: "delete" %>
       </div>
 
     <% else %>
-      <div class="nav_item">
+      <div class="nav_item session_link">
         <%= link_to 'Sign In', signin_path %>
         <%= link_to 'Sign Up', signup_path %>
       </div>
     <% end %>
-    <div class="nav_item">
+    <div class="nav_item session_link">
       <%= link_to 'Contact Us', contacts_path %>
     </div>
 
