@@ -85,7 +85,7 @@
       <tbody>
         <% @courses.each do |course| %>
           <tr>
-            <th><%= course.name %></th>
+            <th><%= course.name.upcase %></th>
             <th><%= course.num %></th>
             <th><%= course.title %></th>
             <th><%= course.credit %></th>

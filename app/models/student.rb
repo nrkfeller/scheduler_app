@@ -24,4 +24,8 @@ class Student < ActiveRecord::Base
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
     end
+    
+    def full_name
+      "#{first_name} #{last_name}"
+    end
 end

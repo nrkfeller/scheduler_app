@@ -1,23 +1,30 @@
-<div class='navbar navbar-fixed-top navbar-default'>
+<div class='navbar navbar-fixed-top navbar-default' style="background-color: rgba(72, 131, 140, 0.4);">
   <div class="container">
 
-    <%= link_to image_tag("picaso_resized.png", alt: "rss feed", height: 80, width: 100), root_path, id: 'hlogo' %>
+    <%= link_to "Picasso" , root_path %>
     <% if signed_in? %>
       <div class="nav_item session_link" >
-        <%= link_to "Signed in as " + current_student.first_name, root_path %>
-        <%= link_to 'Sign Out', signout_path, method: "delete" %>
-      </div>
+        <ul class="nav nav-pills">
+          <li> <%= link_to "Signed in as " + current_student.full_name, root_path, {style: "color: black"}  %> </li>
+          
+          <li> <%= link_to 'Sign Out', signout_path, method: "delete", style: "color: black" %></li>
+            
+          <li> <%= link_to 'Contact Us', contacts_path, {style: "color: black"} %> </li>
+          </ul>
+       </div>
+       
+       
 
     <% else %>
       <div class="nav_item session_link">
-        <%= link_to 'Sign In', signin_path %>
-        <%= link_to 'Sign Up', signup_path %>
-      </div>
+        <ul class="nav nav-pills">
+          <li><%= link_to 'Sign In', signin_path, {style: "color: black"} %> </li>
+          
+          <li><%= link_to 'Sign Up', signup_path, {style: "color: black"} %> </li>
+          
+          <li><%= link_to 'Contact Us', contacts_path, {style: "color: black"} %> </li>
+          </ul>
+        </div>
     <% end %>
-    <div class="nav_item session_link">
-      <%= link_to 'Contact Us', contacts_path %>
-    </div>
-
-    </div>
-  </div>
+   </div>
 </div>

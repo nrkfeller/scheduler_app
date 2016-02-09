@@ -1,4 +1,5 @@
 $(document).ready(handle_student_show_page)
+$(document).on('page:load', handle_student_show_page)
 
 function handle_student_show_page(){
   tables_initialization();

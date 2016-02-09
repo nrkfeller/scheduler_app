@@ -7,26 +7,25 @@
   
       <div class="col-xs-6" style="float:left; margin-top: 20px">
           <%= f.text_field :name, class: "form-control", autofocus: true, placeholder: "Your Name", value:((current_student.first_name.camelize + " " +  current_student.last_name.camelize) if signed_in?) %>
-           </div>
+        </div>
            
       <div class="col-xs-6" style="float: right; margin-top: 20px">
           <%= f.text_field :email, class: "form-control", autofocus: true, placeholder: "Your Email", value:((current_student.email) if signed_in?) %>
-      </div>
+        </div>
       
       <div class="col-md-12" style="margin-top: 20px; margin-bottom: 25px">
-          <%= f.text_area :message, class: "form-control", autofocus: true, id: "contact_content", placeholder: "Message" %>
-      </div>
+         <%= f.text_area :message, class: "form-control", autofocus: true, id: "contact-content", placeholder: "Message" %>
+        </div>
 
       </br>
-      <%=  f.button :button, 'Send message', :class=> "btn btn-primary", :id=> "send_message" do  %>
-    <span class="glyphicon glyphicon-envelope"></span> Send Message
- <% end %>
+      <%=  f.button :button, 'Send message', :class=> "btn btn-primary-outline", :id=> "send_message" do  %>
+        <span class="glyphicon glyphicon-envelope"></span> Send Message
+      <% end %>
     </div>
   <% end %>
   </div>
   </div>
 </div>
-
 
 
 

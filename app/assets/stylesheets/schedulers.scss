@@ -3,11 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .session_link{
-    margin-right: 25px;
+    margin-right: 20px;
     padding-right: 15px;
     float: right;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 5px;
+    margin-bottom: 15px;
     color: white;
     text-transform: none;
     font-size: 1.3em;
@@ -31,7 +31,7 @@
 
 
 .page{
-
+    
     margin-top: 100px;
     text-align: center;
 }
@@ -91,3 +91,24 @@
   text-decoration: none;
 }
 
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+
+.nav-pills > .active > a,
+.nav-pills > .active > a:hover,.nav-pills > li > a:hover {
+text-decoration: none;
+border-radius:0px;
+border-bottom-width: 3px;
+border-bottom-style: solid;
+border-bottom-color: #4682B4;
+    color: #000 !important;
+  background-color: transparent !important;
+    font-size: 14px;
+}
+.nav-pills > li > a{
+    border-radius:0px;
+    font-size: 14px;
+}

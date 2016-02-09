@@ -9,7 +9,16 @@ class ContactsController < ApplicationController
     if @contact.deliver
       flash.now[:notice] = 'Thank you for your message. We will contact you soon!'
     else
-      flash.now[:error] = 'Cannot send message.'
+      if params[:name].nil?
+        @name_error = "Cannot Be blank" 
+      else 
+        @old_name = params[:name]
+      end
+      if params[:email].nil?
+        @email_error = "Cannot Be blank" 
+      else 
+        @old_email= params[:email]
+      end
       render :new
     end
   end
