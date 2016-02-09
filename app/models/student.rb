@@ -1,6 +1,7 @@
 class Student < ActiveRecord::Base
   has_secure_password
 
+  has_many :student_records
   before_save { |student| student.email = email.downcase}
   before_save :create_remember_token
 
@@ -20,7 +21,13 @@ class Student < ActiveRecord::Base
     return PROGRAM
   end
 
-  
+  def get_record
+    self.student_records.map do |course|
+      course.get_record
+    end
+  end
+
+
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
     end
