@@ -1,7 +1,7 @@
 <div class='navbar navbar-fixed-top navbar-default' style="background-color: rgba(72, 131, 140, 0.4);">
   <div class="container">
 
-    <%= link_to "Picasso" , root_path %>
+    <%= link_to "Picasso", root_path %>
     <% if signed_in? %>
       <div class="nav_item session_link" >
         <ul class="nav nav-pills">
@@ -12,10 +12,9 @@
           <li> <%= link_to 'Contact Us', contacts_path, {style: "color: black"} %> </li>
           </ul>
        </div>
-       
-       
 
     <% else %>
+    
       <div class="nav_item session_link">
         <ul class="nav nav-pills">
           <li><%= link_to 'Sign In', signin_path, {style: "color: black"} %> </li>
