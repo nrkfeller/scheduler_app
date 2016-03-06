@@ -59,24 +59,14 @@ CompGames = [
 ["Comp", 472],
 ["Comp", 476],
 ["Comp", 477]
-] 
+]
 
 WebService = [
 ["Comp", 353],
 ["Comp", 445],
 ["Comp", 479],
 ["Soen", 387],
-["Soen", 487] 
-]
-    
-RealTime = [
-["Aero", 480],
-["Aero", 482],
-["Coen", 320],
-["Comp", 345],
-["Comp", 444],
-["Soen", 422],
-["Soen", 423],
+["Soen", 487]
 ]
 
 Electives = [
@@ -99,6 +89,5 @@ Electives = [
 ["Soen", 423],
 ["Soen", 431],
 ["Soen", 448],
-["Soen", 491],
-["Engr", 411]
+["Soen", 491]
 ]

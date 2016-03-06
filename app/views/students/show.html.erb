@@ -66,27 +66,30 @@
 
 
   <div id="student-course-sequence-table" class="col-xs-12 student-profile-table">
-    <table class="cell-border hover">
-      <thead>
-        <tr>
+    <% @courses.each do |key, courses| %>
+    <h2 style="color: #5F9EA0"><%= key %></h2>
+      <table class="cell-border hover">
+        <thead>
+          <tr>
             <th>Name</th>
             <th>Number</th>
             <th>Title</th>
             <th>Credit</th>
             <th>Prerequisite</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @courses.each do |course| %>
-          <tr>
-            <th><%= course.name.upcase %></th>
-            <th><%= course.num %></th>
-            <th><%= course.title %></th>
-            <th><%= course.credit %></th>
-            <th><%= course.prereg %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%courses.each do |course| %>
+            <tr>
+              <th><%= course[:name].upcase %></th>
+              <th><%= course[:num] %></th>
+              <th><%= course[:title] %></th>
+              <th><%= course[:credit] %></th>
+              <th><%= course[:prereg] %></th>
             </tr>
           <% end %>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    <% end %>
   </div>
 </div>

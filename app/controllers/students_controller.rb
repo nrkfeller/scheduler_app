@@ -22,7 +22,10 @@ class StudentsController < ApplicationController
   def show
     @student = Student.find_by_id(params[:id])
     @student_record = @student.get_record
-    @courses = CourseDatum.all
+    @department = "Software Engineering"
+    @courses = SoftwareEngineering.get_course_sequence
+
+
   end
 
   private
