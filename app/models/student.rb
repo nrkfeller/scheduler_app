@@ -21,18 +21,22 @@ class Student < ActiveRecord::Base
     return PROGRAM
   end
 
+  def get_course_sequence
+    return self.department.remove(" ").constantize.get_course_sequence
+  end
+
   def get_record
     self.student_records.map do |course|
       course.get_record
     end
   end
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 
-
+  private
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
     end
-    
-    def full_name
-      "#{first_name} #{last_name}"
-    end
+
 end

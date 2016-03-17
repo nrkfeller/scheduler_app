@@ -23,9 +23,7 @@ class StudentsController < ApplicationController
     @student = Student.find_by_id(params[:id])
     @student_record = @student.get_record
     @department = "Software Engineering"
-    @courses = SoftwareEngineering.get_course_sequence
-
-
+    @courses = @student.get_course_sequence
   end
 
   private

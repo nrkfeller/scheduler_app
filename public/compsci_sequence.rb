@@ -1,9 +1,11 @@
-
+Math =[
+  ["Mast", ]
+]
 Compsci_core = [
 ["Comp", 228],
 ["Comp", 232],
 ["Comp", 233],
-["Comp", 248], 
+["Comp", 248],
 ["Comp", 249],
 ["Comp", 335],
 ["Comp", 346],
@@ -11,7 +13,7 @@ Compsci_core = [
 ["Comp", 352],
 ["Comp", 354],
 ["Encs", 282],
-["Encs", 393] 
+["Encs", 393]
 ]
 
 Math_elec = [
@@ -25,9 +27,6 @@ Math_elec = [
 ["Mast", 224],
 ["Mast", 234],
 ["Mast", 235],
-["Mast", 332],
-["Mast", 334],
-["Mast", 339],
 ["Mast", 392]
 ]
 
@@ -39,7 +38,7 @@ Compsci_games = [
 ["Comp", 472],
 ["Comp", 476],
 ["Comp", 477]
-] 
+]
 
 
 Compsci_web = [
@@ -49,7 +48,7 @@ Compsci_web = [
 ["Soen", 287],
 ["Soen", 387],
 ["Soen", 423],
-["Soen", 487] 
+["Soen", 487]
 ]
 
 Compsci_system_elective = [
@@ -69,27 +68,3 @@ Compsci_system_core = [
 ["Comp", 445],
 ["Comp", 465]
 ]
-
-Compsci_info = [
-["Acco", 220],
-["Bsta", 445],
-["Btm", 387],
-["Btm", 430],
-["Comm", 210],
-["Comm", 222],
-["Comm", 223],
-["Comm", 225],
-["Comm", 308],
-["Comp", 353],
-["Econ", 201],
-["Scom", 261],
-["Scom", 372]
-]
-
-
-
-
-
-
-
-
