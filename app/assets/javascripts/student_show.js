@@ -6,22 +6,47 @@ function handle_student_show_page(){
   show_student_profile_option();
 
 }
-
 function tables_initialization(){
+
   $('#student-record-table table').DataTable({
     searching: false,
     paging: false
-  })
+  });
 
   $('#student-course-sequence-table table').DataTable({
     searching: false,
     paging: false
-  })
+  });
 
-  $('#student-course-sequence-table').hide();
+  show_student_schedule();
+  $("#student-schedule").hide();
+  $('#student-course-sequence-table').hide()
+}
 
-  $('#student-schedule-table').hide();
-  $('#student-schedule-table').show();
+function show_student_schedule(){
+  var date = new Date();
+	var d = date.getDate();
+	var m = date.getMonth();
+	var y = date.getFullYear();
+
+  $('#student-schedule').fullCalendar({
+    header: false,
+    defaultView: "agendaWeek",
+    weekends: false,
+    minTime: "08:00:00",
+    maxTime: "21:00:00",
+    slotDuration: "00:15:00",
+    slotLabelFormat: 'h(:mm)a',
+    events: [
+      {
+        title: "dsadada",
+        start: new Date(y, m, d, 8, 45,0),
+        end: new Date(y, m, d, 10, 0, 0),
+        color: "red"
+      }
+    ]
+
+  });
 }
 
 function show_student_profile_option(){
@@ -36,7 +61,7 @@ function show_student_profile_option(){
       $('#student-course-sequence-table').show();
     }
     else if (button_id === 'student-schedule-button'){
-      $('#student-schedule-table').show();
+      $('#student-schedule').show();
     }
   })
 }

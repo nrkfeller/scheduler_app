@@ -5,7 +5,7 @@ class Student < ActiveRecord::Base
   before_save { |student| student.email = email.downcase}
   before_save :create_remember_token
 
-  PROGRAM = ['Computer Engineering', 'Electrical Engineering', 'Computer Science', 'Software Engineering']
+  PROGRAM = ['Computer Science', 'Software Engineering']
   VALID_STUDENT_ID_REGEX = /\A\d{8}\z/
   VALID_EMAIL_REGEX = /\A\w+@concordia.ca\z/
   validates :first_name, presence: true
