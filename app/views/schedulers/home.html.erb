@@ -6,16 +6,14 @@
     </div>
     <%# use id, not class%>
     <div id="btn-group">
-      
+
       <% if signed_in? %>
         <%=link_to "My Profile", student_path(current_student), class: "btn btn-default sample-button"%>
-        <%=link_to "My Schedule", student_path(current_student), class: "btn btn-default sample-button"%>
-        <%=link_to "My Sequence", student_path(current_student), class: "btn btn-default sample-button"%>
+        <%=link_to "Registration", "students/#{current_student.id}/registration", class: "btn btn-default sample-button"%>
       <% else %>
-        <%=link_to "My Sequence", signin_path, class: "btn btn-default sample-button"%>
         <%=link_to "My Profile", signin_path, class: "btn btn-default sample-button"%>
-        <%=link_to "My Schedule", signin_path, class: "btn btn-default sample-button"%>
+        <%=link_to "Registration", signin_path, class: "btn btn-default sample-button"%>
       <% end %>
-      
+
     </div>
 </div>

@@ -1,4 +1,5 @@
 class CourseDatum < ActiveRecord::Base
+  has_many :current_courses
   COURSE_TYPE = ["Soen", "Comp", "Engr", "Encs"]
   COURSE_NAME = /\w{4}/
   COURSE_NUM = /\d{3}/

@@ -1,0 +1,54 @@
+
+
+  <div class="btn-group col-xs-6" role="group">
+    <button id="current-course-offered-button" type="button" class="btn btn-default col-xs-12">Winter 2016 Courses</button>
+    <div id="current-course-offered-table" class="col-xs-12" style="padding-top: 20px">
+      <table class="cell-border hover">
+        <thead>
+          <tr>
+            <th>Course Id</th>
+            <th>Location</th>
+            <th>Professor</th>
+            <th>Time</th>
+            <th>Turorial Info</th>
+            <th>Lab info</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @current_courses.each do |course| %>
+            <tr>
+              <td><%=course.get_course_id%></td>
+              <td><%=course.location%></td>
+              <td><%=course.professor%></td>
+              <td><%=course.lecture_schedule%></td>
+              <td><%=course.tutorial_schedule%></td>
+              <td><%=course.lab_schedule%></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+<div class="col-xs-6">
+  <div class="btn-group col-xs-6" role="group">
+    <button id="auto-generate-schedule-button" type="button" class="btn btn-default col-xs-12">Auto Generate my schedule </button>
+  </div>
+  <div class="btn-group col-xs-6" role="group">
+    <button id="preference-generate-schedule-button" type="button" class="btn btn-default col-xs-12">Preference setting</button>
+  </div>
+  <div id="auto-generate-schedule" class="col-xs-12">
+  </div>
+  <div id="preference-generate-schedule" class="col-xs-12">
+    <div id="day-option" class="col-xs-6">
+      <h1>Day option</h1>
+      <select id="weekday-selection">
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thrusday">Thrusday</option>
+        <option value="Friday">Friday</option>
+      </select>
+    </div>
+  </div>
+</div>

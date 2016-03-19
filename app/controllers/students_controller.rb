@@ -26,6 +26,10 @@ class StudentsController < ApplicationController
     @courses = @student.get_course_sequence
   end
 
+  def registration
+    @current_courses = CurrentCourse.all
+  end
+
   private
     def student_params
       params.require(:student).permit(:first_name, :last_name, :student_id,:email, :department,:password, :password_confirmation)

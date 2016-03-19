@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317014824) do
+ActiveRecord::Schema.define(version: 20160319171158) do
 
   create_table "computer_sciences", force: :cascade do |t|
     t.integer  "course_id"
@@ -28,6 +28,22 @@ ActiveRecord::Schema.define(version: 20160317014824) do
     t.string   "prereg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "current_courses", force: :cascade do |t|
+    t.integer  "course_datum_id"
+    t.string   "year"
+    t.string   "semester"
+    t.string   "professor"
+    t.string   "lecture_day"
+    t.string   "lecture_time"
+    t.string   "tutorial_day"
+    t.string   "tutorial_time"
+    t.string   "lab_day"
+    t.string   "lab_time"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "location"
   end
 
   create_table "software_engineerings", force: :cascade do |t|

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
 
   get 'students/:id', to: 'students#show'
+  get 'students/:id/registration', to: 'students#registration'
 
   get 'schedulers/mysequence'
   resources :mysequence
