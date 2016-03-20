@@ -12,6 +12,10 @@ function handle_student_registration_page(){
 function preference_handler(){
   $("#weekday-selection").selectize({
     delimiter: ',',
-    maxItems: 3
+    maxItems: 5
+  })
+  $("#time-selection").selectize({
+    delimiter: ',',
+    maxItems: 2
   })
 }
