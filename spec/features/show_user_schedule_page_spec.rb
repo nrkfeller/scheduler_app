@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.feature "User sign in" do
+RSpec.feature "Show user schedule page" do
     
     before do
         @john = Student.create!(first_name: "John",
@@ -12,7 +12,7 @@ RSpec.feature "User sign in" do
             password_confirmation: "password")
     end
     
-    scenario "with valid credentials" do
+    scenario "when signed in" do
         visit "/"
         click_link "Sign In"
         fill_in "Email", with: "john@concordia.ca"
@@ -20,17 +20,22 @@ RSpec.feature "User sign in" do
         click_button "Sign In"
         
         visit "/"
-        expect(page).to have_content("Signed in as John")
+        click_link "My Profile"
+        click_button "student-sequence-button"
+        expect(page).to have_css('div#student-schedule')
+        click_button "student-schedule-button"
+        expect(page).to have_css('div#student-schedule')
+        click_button "student-record-button"
+        expect(page).to have_css('div#student-schedule')
     end
     
-    scenario "with invalid credentials" do
+    scenario "when not signed in " do
         visit "/"
-        click_link "Sign In"
-        fill_in "Email", with: "john@concordia.ca"
-        fill_in "Password", with: "potato123"
-        click_button "Sign In"
+        click_link "My Profile"
         
-       expect(page).not_to have_content("Signed in as John")
+        expect(page).to have_content("Sign in")
+        fill_in "Email", with: "john@concordia.ca"
+        fill_in "Password", with: "password"
+        click_button "Sign In"
     end
-    
 end

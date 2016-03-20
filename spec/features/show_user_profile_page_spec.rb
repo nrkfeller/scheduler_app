@@ -6,7 +6,7 @@ RSpec.feature "Show user profile page" do
         @john = Student.create!(first_name: "John",
             last_name: "doe",
             student_id: 11111133,
-            department: "Computer Engineering",
+            department: "Computer Science",
             email: "john@concordia.ca",
             password: "password",
             password_confirmation: "password")

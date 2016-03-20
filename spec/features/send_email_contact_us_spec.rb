@@ -5,7 +5,7 @@ RSpec.feature "User send contact message" do
         @john = Student.create!(first_name: "John",
             last_name: "Doe",
             student_id: 11111133,
-            department: "Computer Engineering",
+            department: "Computer Science",
             email: "john@concordia.ca",
             password: "password",
             password_confirmation: "password")
@@ -26,7 +26,7 @@ RSpec.feature "User send contact message" do
         find_field('contact_name').value.should eq @john.first_name + " " + @john.last_name
         find_field('contact_email').value.should eq @john.email
         
-        fill_in "contact_content", with: "Test message send"
+        fill_in "contact_name", with: "Test message send"
         
         click_button "send_message"
         
@@ -38,7 +38,7 @@ RSpec.feature "User send contact message" do
         
         click_link "Contact Us"
         
-        fill_in "contact_content", with: "Test message send"
+        fill_in "contact_name", with: "Test message send"
         click_button "send_message"
         
         expect(page).to have_content("Name can't be blank")
