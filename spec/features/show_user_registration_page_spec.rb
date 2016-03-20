@@ -27,6 +27,9 @@ RSpec.feature "Show user schedule page" do
         
         expect(page).to have_content('Day option')
         
+        #fill_in "DataTables_Table_1_filter", with: "engr"
+        expect(page).to have_css('div#current-course-offered-table')
+        
     end
     
     scenario "when not signed in " do

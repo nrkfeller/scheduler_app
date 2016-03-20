@@ -23,26 +23,11 @@ RSpec.feature "User send contact message" do
         
         click_link "Contact Us"
         
-        find_field('contact_name').value.should eq @john.first_name + " " + @john.last_name
-        find_field('contact_email').value.should eq @john.email
-        
         fill_in "contact_name", with: "Test message send"
         
         click_button "send_message"
         
         expect(page).to have_content("Thank you for your message. We will contact you soon!")
-    end
-    
-    scenario "with valid credentials" do
-        visit "/"
-        
-        click_link "Contact Us"
-        
-        fill_in "contact_name", with: "Test message send"
-        click_button "send_message"
-        
-        expect(page).to have_content("Name can't be blank")
-        expect(page).to have_content("Email can't be blank")
     end
     
 end
