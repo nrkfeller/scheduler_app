@@ -1,3 +1,5 @@
+user cases:
+
 Brief Description: The User class is a parent class of Student and Administrator which shares its   attributes and methods onto both sub classes.
 Attributes:
 firstName: string
@@ -231,4 +233,4 @@ courses: CurrentCourse[]
 
 Component diagram:
 
-[<img src="http://imgur.com/1GV6KHf">](http://imgur.com/)
+[<img src="http://i.imgur.com/1GV6KHf.png?1">](http://imgur.com/)
