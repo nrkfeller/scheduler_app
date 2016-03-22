@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   match 'contacts', to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]
 
-
+  match "scheduler_generator/preference_generator", to: "scheduler_generator#preference_generator", via: :get
 
 
 
