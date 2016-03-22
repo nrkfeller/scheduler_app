@@ -30,9 +30,15 @@ we are creating the software from the ground up, we will be replacing the base w
 (The numbers above were obtained through the teams repository on GitHub)
 
 
+
 Total LOC = Current LOC - Deleted + Modified
+
+
 Total LOC = 4200 - 800 + 750
+
+
 Total LOC = 4150
+
 
 
 Like explained earlier, the table above represents the revised estimates of what we have done thus far. The cost of integration up to now has been approximately 6,440$, which accounts for over 184 man hours and about 45 days of work
@@ -100,7 +106,6 @@ as final report and presentation deadlines. Properly indicating the risks can he
 
 
 * Unfamiliarity with the programming languages used can create more issues and take more time to correct during development in the debugging stage than previously expected.
-* 
 
 
 
@@ -120,10 +125,10 @@ as final report and presentation deadlines. Properly indicating the risks can he
 ### 5.2.3 Personnel Availability
 
     
-*All members of the team have full course loads as well as a full class schedule, some also have part-time jobs, so personnel availability can have a huge strain on the meeting of deadlines. The availability of every member of the team can also hinder their dedication to the project, which can increase the risk of handing-in sub-par work.
+* All members of the team have full course loads as well as a full class schedule, some also have part-time jobs, so personnel availability can have a huge strain on the meeting of deadlines. The availability of every member of the team can also hinder their dedication to the project, which can increase the risk of handing-in sub-par work.
 
 
-*It will also be hard to schedule team meetings where all 10 members can be present to work on deliverables together and meet specific deadlines, this can also effect communication between team members and completion of work.
+* It will also be hard to schedule team meetings where all 10 members can be present to work on deliverables together and meet specific deadlines, this can also effect communication between team members and completion of work.
 
 
 
@@ -131,10 +136,10 @@ as final report and presentation deadlines. Properly indicating the risks can he
 ### 5.2.4 Time Constraints
 
 
-*The whole project has to be completed in the winter semester, which gives us very limited time to conceptualize, create, implement, design, test and document software from the ground up.
+* The whole project has to be completed in the winter semester, which gives us very limited time to conceptualize, create, implement, design, test and document software from the ground up.
 
 
-*The very limited time constraints can play a role with the quality of the final product if we don’t plan accordingly. 
+* The very limited time constraints can play a role with the quality of the final product if we don’t plan accordingly. 
 
 
 
