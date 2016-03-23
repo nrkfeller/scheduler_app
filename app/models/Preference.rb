@@ -5,7 +5,7 @@ class Preference
   def initialize(day, time, credits)
     @day = {monday: false, tuesday: false, wednesday: false, thrusday: false, friday: false}
     update_day(day)
-    @time = {no_morning: false, no_evening: false, no_afternoon: false}
+    @time = {morning: false, evening: false, afternoon: false}
     update_time(time)
     @credits = validate_credit(credits.to_f)
   end
@@ -23,9 +23,13 @@ class Preference
   end
 
   def update_time(time)
-    unless time == "all"
+    if time == "all"
+      @time.keys.each do |key|
+        @time[key] = true
+      end
+    else
       time.each do |time_option|
-        @time[time_option.downcase.split(" ").join("_").to_sym] = true
+        @time[time_option.downcase.to_sym] = true
       end
     end
   end
