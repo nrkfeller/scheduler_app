@@ -23,11 +23,12 @@ function preference_handler(){
   $("#time-selection").selectize({
     allowEmptyOption: true,
     delimiter: ',',
-    maxItems: 2,
+    maxItems: 3,
     onChange: function(data){
       time_data = data;
     }
   });
+
 
   $("#preference-submit-button").off().on("click", function(){
     if (day_data == undefined || day_data.length == 5){
@@ -38,13 +39,13 @@ function preference_handler(){
     }
     var credit = $("#max-credit").text();
     if (credit == ""){
-      curedit = "0.0"
+      credit = "15.0"
     }
     $.ajax({
       url: "/scheduler_generator/preference_generator",
       method: "GET",
       dataType: "json",
-      data: {days: day_data, time: time_data},
+      data: {days: day_data, time: time_data, credit: credit},
       success: function(data){
         console.log(data);
       }

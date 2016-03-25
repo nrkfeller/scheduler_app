@@ -31,6 +31,14 @@ class CourseDatum < ActiveRecord::Base
     return nil
   end
 
+  def in_record?(record)
+    record.each do |past_course|
+      if self.id == past_course.course_id
+        return true
+      end
+    end
+    return false
+  end
 
 
   private

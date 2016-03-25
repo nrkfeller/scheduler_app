@@ -1,8 +1,23 @@
 class SchedulerGenerator
-  def self.preference_generator(student, preferece)
-    student_record = student.get_record
+  def self.preference_generator(student, preference)
+    student_record = student.student_records
     extracted_current_courses = get_extracted_current_courses(student.department)
+    available_courses = Array.new
+    extracted_current_courses.reject do |courses|
+      courses = courses.reject{|course| not course_satisfy_preference?(preference, course)}
+      available_courses << courses unless courses.empty?
+    end
+    return filter_by_student_record(available_courses, student_record)
   end
+
+  def self.filter_by_student_record(current_courses,record)
+    final_current_courses = Array.new
+    current_courses.each do |courses|
+      final_current_courses << courses if courses[0].meet_record?(record)
+    end
+    return final_current_courses
+  end
+
   def self.get_extracted_current_courses(department)
     course_sequence = department.remove(" ").constantize.all
     current_courses = Array.new

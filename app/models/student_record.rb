@@ -18,6 +18,9 @@ class StudentRecord < ActiveRecord::Base
     return {year: self.year, semester: self.semester, course_name: course.name,course_number: course.num, course_title: course.title, grade: self.grade, status: self.status }
   end
 
+  def pass?
+    return ((self.status == "FAIL") ? false : true)
+  end
   private
     def format_fields
       self.semester = self.semester.upcase

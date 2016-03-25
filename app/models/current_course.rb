@@ -35,4 +35,26 @@ class CurrentCourse < ActiveRecord::Base
     end
     return "No Lab"
   end
+
+  def meet_record?(record)
+    record.each do |past_course|
+      if past_course.course_id == self.course_datum_id and past_course.pass?
+        return false
+      end
+    end
+    preregs = CourseDatum.find_by_id(self.course_datum_id).get_prereg
+    return true unless preregs
+    preregs.each do |pre|
+      if pre.kind_of?(Array)
+        result = false
+        pre.each do |op|
+          result |= op.in_record?(record)
+        end
+        return false unless result
+      else
+        return false unless pre.in_record?(record)
+      end
+    end
+    return true
+  end
 end
