@@ -1,9 +1,71 @@
 class SchedulerGenerator
 
-  def generator_possible_schedules(current_courses, max_credit)
+  def self.is_conflict?(course1, course2)
+    course1.each do |key1, value1|
+      course2.each do |key2, value2|
+        if value1 and value2 and !(key1 == :course_id or key2 == :course_id)
+          if same_day?(value1[:day], value2[:day])
+            return true if conflict_time?(value1[:time], value2[:time])
+          end
+        end
+      end
+    end
+    return false
+  end
+
+
+  def self.same_day?(day1, day2)
+    day1 = day1.split(" - ")
+    day2 = day2.split(" - ")
+    day1.each do |day_1|
+      day2.each do |day_2|
+        if day_1 == day_2
+          return true
+        end
+      end
+    end
+    return false
+  end
+
+  def self.conflict_time?(time1, time2)
+    time1_stamp = get_time_stamp(time1)
+    time2_stamp = get_time_stamp(time2)
+    if time1_stamp[0] <= time2_stamp[0] and time1_stamp[1] > time2_stamp[0]
+      return true
+    end
+    if time1_stamp[0] < time2_stamp[1] and time1_stamp[1] >= time2_stamp[1]
+      return true
+    end
+
+    if time2_stamp[0] < time1_stamp[1] and time2_stamp[1] >= time1_stamp[1]
+      return true
+    end
+
+    if time2_stamp[0] <= time1_stamp[0] and time2_stamp[1] > time1_stamp[0]
+      return true
+    end
+
+    return false
 
   end
-  
+
+  def self.get_time_stamp(time)
+    time = time.split(" - ")
+    from = time[0]
+    from_time = from[0..-3].split(":").join(".").to_f
+    if from[-2..-1] == "PM"
+      from_time += 12
+    end
+
+    to = time[1]
+
+    to_time = to[0..-3].split(":").join(".").to_f
+    if to[-2..-1] == "PM"
+      to_time += 12
+    end
+    return [from_time, to_time]
+  end
+
   def self.preference_generator(student, preference)
     student_record = student.student_records
     extracted_current_courses = get_extracted_current_courses(student.department)
