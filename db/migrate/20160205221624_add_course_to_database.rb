@@ -52,7 +52,7 @@ class AddCourseToDatabase < ActiveRecord::Migration
   [298, "System Hardware Lab", 1],
   [321, "Information Systems Security", 3, "COMP 346"],
   [331, "Introduction to Formal Methods for Software Engineering", 3, "COMP 232 or COMP 249"],
-  [341, "Software Process", 3,"COMP 352 or COEN 352; ENCS 282 previously or concurrently"],
+  [341, "Software Process", 3,"COMP 352 or COEN 352; ENCS 282"],
   [342, "Software Requirements and Specifications", 3,"SOEN 341"],
   [343, "Software Architecture and Design I", 3,"SOEN 341; SOEN 343"],
   [344, "Software Architecture and Design II", 3,"SOEN 343"],
