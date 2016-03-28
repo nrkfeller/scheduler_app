@@ -47,7 +47,7 @@ function preference_handler(){
       dataType: "json",
       data: {days: day_data, time: time_data, credit: credit},
       success: function(data){
-        console.log(data);
+        
       }
     });
   })

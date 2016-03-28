@@ -57,4 +57,47 @@ class CurrentCourse < ActiveRecord::Base
     end
     return true
   end
+
+  def generate_options
+    if self.location == "Online"
+      lecture = nil
+    else
+      lecture = {day: self.lecture_day, time: self.lecture_time}
+    end
+    unless self.tutorial_day
+      tutorial = [nil]
+    else
+      tutorial_day = self.tutorial_day.split(" or ")
+      tutorial_time = self.tutorial_time.split(" or ")
+      tutorial = []
+      i = 0
+      while i < tutorial_day.size()
+        tutorial[i] = {day: tutorial_day[i], time: tutorial_time[i]}
+        i += 1
+      end
+    end
+    unless self.lab_day
+      lab = [nil]
+    else
+      lab_day = self.lab_day.split(" or ")
+      lab_time = self.lab_time.split(" or ")
+      lab = []
+      i = 0
+      while i < lab_day.size()
+        lab.append({day: lab_day[i], time: lab_time[i]})
+        i += 1
+      end
+    end
+    options = []
+    tutorial.each do |tutorial_section|
+      lab.each do |lab_section|
+        options.append({course_id: self.id, lecture: lecture, tutorial: tutorial_section, lab: lab_section})
+      end
+    end
+    return options
+  end
+
+  def over_lap?(course)
+
+  end
 end

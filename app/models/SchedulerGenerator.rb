@@ -1,4 +1,9 @@
 class SchedulerGenerator
+
+  def generator_possible_schedules(current_courses, max_credit)
+
+  end
+  
   def self.preference_generator(student, preference)
     student_record = student.student_records
     extracted_current_courses = get_extracted_current_courses(student.department)
