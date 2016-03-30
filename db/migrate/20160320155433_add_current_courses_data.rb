@@ -72,7 +72,7 @@ class AddCurrentCoursesData < ActiveRecord::Migration
 
     	{course: ["Comp", 498], professor: "Charalambos Poullis", location: "H 625 SGW", lecture: {lecture_day: "Fr", lecture_time: "5:45PM - 8:15PM"}, lab: ["Fr 8:30PM - 10:20PM"]},
 
-    	{course: ["Soen", 228], professor: "Tadeusz Obuchowicz", location: "MB S2.330 SGW", lecture: {lecture_day: "Tu", lecture_time: "5:45PM - 8:15PM"}, tutorial: ["Tu 8:30PM - 10:10PM"], lab: ["Tu 8:30PM - 10:10PM", "Tu 10:00AM - 12:00PM", "Mo 10:00AM - 12:00PM", "We 10:00AM - 12:00PM", "We 6:00PM - 8:00PM"]},
+    	{course: ["Soen", 228], professor: "Tadeusz Obuchowicz", location: "MB S2.330 SGW", lecture: {lecture_day: "Tu", lecture_time: "5:45PM - 8:15PM"}, tutorial: ["Tu 8:30PM - 10:10PM"], lab: ["Tu 10:00AM - 12:00PM", "Mo 10:00AM - 12:00PM", "We 10:00AM - 12:00PM", "We 6:00PM - 8:00PM"]},
 
     	{course: ["Soen", 228], professor: "Donald Peter Davis", location: "MB S2.210 SGW", lecture: {lecture_day: "Mo We", lecture_time: "2:45PM - 4:00PM"}, tutorial: ["We 4:15PM - 5:55PM"], lab: ["Tu 10:00AM - 12:00PM", "We 10:00AM - 12:00PM", "We 6:00PM - 8:00PM", "Mo 4:15PM - 6:15PM"]},
 
