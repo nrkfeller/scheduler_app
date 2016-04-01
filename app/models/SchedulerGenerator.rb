@@ -1,16 +1,20 @@
 class SchedulerGenerator
+  def self.get_combination(options)
+    result = [[]]
+    options.each do |option|
+      temp_result = []
+      result.each do |group|
 
-  def self.get_combination(options, group = [])
-    if options.empty?
-      return [group]
-    else
-      groups = []
-      options[0].each do |course|
-        groups += get_combination(options[1..-1], group[0..-1].append(course))
+        option.each do |course|
+
+          temp_result << (group + [course])
+        end
       end
-      return groups
+      result = temp_result
     end
+    return result
   end
+
 
   def self.generate_combination(combinations)
     combinations.reject do |combination|

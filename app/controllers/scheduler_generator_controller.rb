@@ -17,6 +17,7 @@ class SchedulerGeneratorController < ApplicationController
     if combinations.size() > LIMIT
       combinations = combinations[0..LIMIT]
     end
+
     options = []
     combinations.each do |combination|
       option = SchedulerGenerator.generate_combination(SchedulerGenerator.get_combination(combination))[0]
@@ -24,7 +25,6 @@ class SchedulerGeneratorController < ApplicationController
         options << option
       end
     end
-    byebug
     render json: options
   end
 end
