@@ -39,34 +39,39 @@ function preference_handler(){
     if (time_data == undefined){
       time_data = "all";
     }
-    var credit = $("#max-credit").text();
-    if (credit == ""){
-      credit = "15.0"
+    var number_of_class = $("#number-of-class-option").text();
+    if (number_of_class == ""){
+      number_of_class = "4"
     }
     $.ajax({
       url: "/scheduler_generator/preference_generator",
       method: "GET",
       dataType: "json",
-      data: {days: day_data, time: time_data, credit: credit},
+      data: {days: day_data, time: time_data, number_of_class: number_of_class},
       success: function(data){
         test = data;
         $("#current-course-offered-table").hide();
-        $("#course-schedule-section").append("<div id='option1'></div>");
-        var option = $("#course-schedule-section").find("#option1");
+        for (var i = 0; i < data.length; i ++){
+          $("#course-schedule-section").append("<h1>Option " + i +"</h1><div id='schedule-option-" + i+ "'></div>");
+          var option = $("#course-schedule-section").find("#schedule-option-" + i);
 
+          time_events = []
+          for (var j= 0; j < data[i].length; j++){
+            time_events = time_events.concat(construct_time_event(data[i][j]));
+          }
 
+          option.fullCalendar({
+            header: false,
+            defaultView: "agendaWeek",
+            weekends: false,
+            minTime: "08:00:00",
+            maxTime: "23:00:00",
+            slotDuration: "00:15:00",
+            slotLabelFormat: 'h(:mm)a',
+            events: time_events
 
-        option.fullCalendar({
-          header: false,
-          defaultView: "agendaWeek",
-          weekends: false,
-          minTime: "08:00:00",
-          maxTime: "21:00:00",
-          slotDuration: "00:15:00",
-          slotLabelFormat: 'h(:mm)a',
-          events: construct_time_event(data.option1[0])
-
-        });
+          });
+        }
       }
     });
   })
@@ -118,7 +123,7 @@ function construct_time_event(object){
     end_time = get_time(lab_time[1]);
     events.push(
       {
-        title: "tutorial " + id,
+        title: "Lab " + id,
         start: new Date(y, m, d + (mapping[lab.day] - date.getDay()), start_time[0], start_time[1], 0),
         end: new Date(y, m, d + (mapping[lab.day] - date.getDay()), end_time[0], end_time[1], 0),
         color: "green"
@@ -130,7 +135,7 @@ function construct_time_event(object){
 
 function get_time(time){
   var the_time = time.match(/\d+:\d+/)[0].split(":");
-  if (time.indexOf("PM") != -1){
+  if (time.indexOf("PM") != -1 && the_time[0] != "12"){
     the_time[0] = parseInt(the_time[0]) + 12
   }
   else {

@@ -1,15 +1,30 @@
 require "SchedulerGenerator.rb"
 class SchedulerGeneratorController < ApplicationController
-  LIMIT = 15
+  LIMIT = 10
   def preference_generator
-    @preference = Preference.new(params[:days], params[:time], params[:credit])
+    @preference = Preference.new(params[:days], params[:time], params[:number_of_class])
     @student = current_student
     current_courses_available = SchedulerGenerator.preference_generator(@student, @preference)
     course_option_list = Array.new
     current_courses_available.each do |courses|
-      course_option_list.append(courses.map {|course| course.generate_options})
+      options = []
+      courses.each do |course|
+        options += course.generate_options
+      end
+      course_option_list.append(options)
     end
-    option1 = {option1: [course_option_list[0][0][0], course_option_list[1][0][0], course_option_list[2][0][0], course_option_list[3][0][0]]}
-    render json: option1
+    combinations = course_option_list.combination(@preference.number_of_classes).to_a
+    if combinations.size() > LIMIT
+      combinations = combinations[0..LIMIT]
+    end
+    options = []
+    combinations.each do |combination|
+      option = SchedulerGenerator.generate_combination(SchedulerGenerator.get_combination(combination))[0]
+      if option
+        options << option
+      end
+    end
+    byebug
+    render json: options
   end
 end

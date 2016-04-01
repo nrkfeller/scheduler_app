@@ -1,5 +1,37 @@
 class SchedulerGenerator
 
+  def self.get_combination(options, group = [])
+    if options.empty?
+      return [group]
+    else
+      groups = []
+      options[0].each do |course|
+        groups += get_combination(options[1..-1], group[0..-1].append(course))
+      end
+      return groups
+    end
+  end
+
+  def self.generate_combination(combinations)
+    combinations.reject do |combination|
+      is_group_conflict?(combination)
+    end
+  end
+
+  def self.is_group_conflict?(group)
+    i = 0
+    while i < (group.size() - 1)
+      j = i + 1
+      while j < group.size()
+        if is_conflict?(group[i], group[j])
+          return true
+        end
+        j+=1
+      end
+      i+= 1
+    end
+    return false
+  end
   def self.is_conflict?(course1, course2)
     course1.each do |key1, value1|
       course2.each do |key2, value2|
@@ -61,7 +93,9 @@ class SchedulerGenerator
 
     to_time = to[0..-3].split(":").join(".").to_f
     if to[-2..-1] == "PM"
-      to_time += 12
+      if to_time < 12
+        to_time += 12
+      end
     end
     return [from_time, to_time]
   end

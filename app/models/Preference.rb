@@ -1,13 +1,13 @@
 class Preference
-  MAX_CREDIT = 15.0
-  MIN_CREDIT = 1.5
-  attr_accessor :day, :time, :credits
-  def initialize(day, time, credits)
+  MAX_NUM = 6
+  MIN_NUM = 1
+  attr_accessor :day, :time, :number_of_classes
+  def initialize(day, time, number_of_classes)
     @day = {monday: false, tuesday: false, wednesday: false, thrusday: false, friday: false}
     update_day(day)
     @time = {morning: false, evening: false, afternoon: false}
     update_time(time)
-    @credits = validate_credit(credits.to_f)
+    @number_of_classes = validate_credit(number_of_classes.to_i)
   end
 
   def update_day(day)
@@ -34,9 +34,9 @@ class Preference
     end
   end
 
-  def validate_credit(credit)
-    return MAX_CREDIT if credit >= MAX_CREDIT
-    return MIN_CREDIT if credit <= MIN_CREDIT
-    return credit - credit%0.5
+  def validate_credit(num)
+    return MAX_NUM if num >= MAX_NUM
+    return MIN_NUM if num <= MIN_NUM
+    return num
   end
 end
