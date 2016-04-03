@@ -1,4 +1,5 @@
 require "SchedulerGenerator.rb"
+require "Preference.rb"
 class SchedulerGeneratorController < ApplicationController
   LIMIT = 20
   def preference_generator
