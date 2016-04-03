@@ -95,10 +95,10 @@ class CurrentCourse < ActiveRecord::Base
       lab.each do |lab_section|
         if tutorial_section and lab_section and tutorial_section[:day] == lab_section[:day]
           unless SchedulerGenerator.conflict_time?(tutorial_section[:time], lab_section[:time])
-            options.append({course_id: self.id, lecture: lecture, tutorial: tutorial_section, lab: lab_section})
+            options.append({course_id: self.get_course_id, lecture: lecture, tutorial: tutorial_section, lab: lab_section})
           end
         else
-          options.append({course_id: self.id, lecture: lecture, tutorial: tutorial_section, lab: lab_section})
+          options.append({course_id: self.get_course_id, lecture: lecture, tutorial: tutorial_section, lab: lab_section})
         end
       end
     end

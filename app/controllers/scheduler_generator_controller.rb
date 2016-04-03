@@ -1,6 +1,6 @@
 require "SchedulerGenerator.rb"
 class SchedulerGeneratorController < ApplicationController
-  LIMIT = 10
+  LIMIT = 20
   def preference_generator
     @preference = Preference.new(params[:days], params[:time], params[:number_of_class])
     @student = current_student

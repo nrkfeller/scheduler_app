@@ -33,48 +33,63 @@ function preference_handler(){
 
 
   $("#preference-submit-button").off().on("click", function(){
-    if (day_data == undefined || day_data.length == 5){
-      day_data = "all";
+    var text = $(this).text();
+    if (text == "Reset"){
+      $(this).text("Submit")
+      $("#current-course-offered-table").show();
+      $("#course-schedule-section").find(".schedule-options").remove()
     }
-    if (time_data == undefined){
-      time_data = "all";
-    }
-    var number_of_class = $("#number-of-class-option").text();
-    if (number_of_class == ""){
-      number_of_class = "4"
-    }
-    $.ajax({
-      url: "/scheduler_generator/preference_generator",
-      method: "GET",
-      dataType: "json",
-      data: {days: day_data, time: time_data, number_of_class: number_of_class},
-      success: function(data){
-        test = data;
-        $("#current-course-offered-table").hide();
-        for (var i = 0; i < data.length; i ++){
-          $("#course-schedule-section").append("<h1>Option " + i +"</h1><div id='schedule-option-" + i+ "'></div>");
-          var option = $("#course-schedule-section").find("#schedule-option-" + i);
-
-          time_events = []
-          for (var j= 0; j < data[i].length; j++){
-            time_events = time_events.concat(construct_time_event(data[i][j]));
-          }
-
-          option.fullCalendar({
-            header: false,
-            defaultView: "agendaWeek",
-            weekends: false,
-            minTime: "08:00:00",
-            maxTime: "23:00:00",
-            slotDuration: "00:15:00",
-            slotLabelFormat: 'h(:mm)a',
-            events: time_events
-
-          });
-        }
+    else{
+      $("#loading").show();
+      $("#preference-submit-button").hide()
+      if (day_data == undefined || day_data.length == 5){
+        day_data = "all";
       }
-    });
-  })
+      if (time_data == undefined){
+        time_data = "all";
+      }
+      var number_of_class = $("#number-of-class-option").val();
+      if (number_of_class == ""){
+        number_of_class = "4"
+      }
+      $.ajax({
+        url: "/scheduler_generator/preference_generator",
+        method: "GET",
+        dataType: "json",
+        data: {days: day_data, time: time_data, number_of_class: number_of_class},
+        success: function(data){
+          test = data;
+          $("#current-course-offered-table").hide();
+          for (var i = 0; i < data.length; i ++){
+            $("#course-schedule-section").append("<h1 class='schedule-options'>Option " + (i +1) +"</h1><div id='schedule-option-" + i+ "' class='schedule-options'></div>");
+            var option = $("#course-schedule-section").find("#schedule-option-" + i);
+
+            time_events = []
+            for (var j= 0; j < data[i].length; j++){
+              time_events = time_events.concat(construct_time_event(data[i][j]));
+            }
+
+            option.fullCalendar({
+              header: false,
+              defaultView: "agendaWeek",
+              weekends: false,
+              minTime: "08:00:00",
+              maxTime: "23:00:00",
+              slotDuration: "00:15:00",
+              slotLabelFormat: 'h(:mm)a',
+              events: time_events
+
+            });
+          }
+          $("#loading").hide();
+          $("#preference-submit-button").text("Reset");
+          $("#preference-submit-button").show();
+        }
+      });
+
+    }
+
+  });
 }
 
 function construct_time_event(object){
