@@ -7,6 +7,33 @@ function handle_student_registration_page(){
   });
 
   preference_handler();
+
+}
+
+function click_event(){
+  var option = $($("#course-schedule-section").find(".schedule-options h1").next())
+
+  option.mouseenter(function(){
+    var id = $(this).attr("id").split("-")
+    var num = parseInt(id[id.length -1])
+    selected_data = test[num]
+    var text = $(this).prev().text();
+    $(this).css("background","#ADD8E6")
+    $(this).prev().text("Double Click To Select The Schedule");
+    $(this).mouseleave(function(){
+      $(this).prev().text(text);
+      $(this).css("background", "white")
+    })
+    $(this).off().dblclick(function(){
+      console.log(selected_data)
+      $.ajax({
+        url: "/scheduler_generator/select_a_schedule",
+        method: "GET",
+        dataType: "json",
+        data: {selected: selected_data}
+      });
+    });
+  })
 }
 
 
@@ -68,7 +95,7 @@ function preference_handler(){
             for (var j= 0; j < data[i].length; j++){
               time_events = time_events.concat(construct_time_event(data[i][j]));
             }
-            var selected_data = test[i];
+            var selected_data = data[i];
             option.fullCalendar({
               header: false,
               defaultView: "agendaWeek",
@@ -80,23 +107,7 @@ function preference_handler(){
               events: time_events
 
             });
-            option.mouseenter(function(){
-              var text = $(this).prev().text();
-              $(this).css("background","#ADD8E6")
-              $(this).prev().text("Double Click To Select The Schedule");
-              $(this).mouseleave(function(){
-                $(this).prev().text(text);
-                $(this).css("background", "white")
-              })
-              $(this).dblclick(function(){
-                $.ajax({
-                  url: "/scheduler_generator/select_a_schedule",
-                  method: "GET",
-                  dataType: "json",
-                  data: {selected: selected_data}
-                });
-              });
-            })
+            click_event();
           }
           $("#loading").hide();
           $("#preference-submit-button").text("Reset");
@@ -107,6 +118,8 @@ function preference_handler(){
     }
 
   });
+
+
 }
 
 function construct_time_event(object){
