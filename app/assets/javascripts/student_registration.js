@@ -61,14 +61,14 @@ function preference_handler(){
           test = data;
           $("#current-course-offered-table").hide();
           for (var i = 0; i < data.length; i ++){
-            $("#course-schedule-section").append("<h1 class='schedule-options'>Option " + (i +1) +"</h1><div id='schedule-option-" + i+ "' class='schedule-options'></div>");
+            $("#course-schedule-section").append("<div class='schedule-options'><h1 style='padding-top: 30px'>Option " + (i +1) +"</h1><div id='schedule-option-" + i+ "' style='cursor: pointer'></div>");
             var option = $("#course-schedule-section").find("#schedule-option-" + i);
 
             time_events = []
             for (var j= 0; j < data[i].length; j++){
               time_events = time_events.concat(construct_time_event(data[i][j]));
             }
-
+            var selected_data = test[i];
             option.fullCalendar({
               header: false,
               defaultView: "agendaWeek",
@@ -80,6 +80,23 @@ function preference_handler(){
               events: time_events
 
             });
+            option.mouseenter(function(){
+              var text = $(this).prev().text();
+              $(this).css("background","#ADD8E6")
+              $(this).prev().text("Double Click To Select The Schedule");
+              $(this).mouseleave(function(){
+                $(this).prev().text(text);
+                $(this).css("background", "white")
+              })
+              $(this).dblclick(function(){
+                $.ajax({
+                  url: "/scheduler_generator/select_a_schedule",
+                  method: "GET",
+                  dataType: "json",
+                  data: {selected: selected_data}
+                });
+              });
+            })
           }
           $("#loading").hide();
           $("#preference-submit-button").text("Reset");
@@ -99,7 +116,7 @@ function construct_time_event(object){
   var m = date.getMonth();
   var y = date.getFullYear();
   var events = []
-  var id = object.course_id
+  var name = object.course_name
   var lecture = object.lecture
   if (lecture != null || lecture != undefined){
     var lecture_day = lecture.day.split(" - ");
@@ -109,7 +126,7 @@ function construct_time_event(object){
     for (var i = 0; i < lecture_day.length; i++){
       events.push(
         {
-          title: "lecture "+ id,
+          title: "Lecture "+ name,
           start: new Date(y, m, d + (mapping[lecture_day[i]] - date.getDay()), start_time[0], start_time[1], 0),
           end: new Date(y, m, d + (mapping[lecture_day[i]] - date.getDay()), end_time[0], end_time[1], 0),
           color: "red"
@@ -124,7 +141,7 @@ function construct_time_event(object){
     end_time = get_time(tutorial_time[1]);
     events.push(
       {
-        title: "tutorial " + id,
+        title: "Tutorial " + name,
         start: new Date(y, m, d + (mapping[tutorial.day] - date.getDay()), start_time[0], start_time[1], 0),
         end: new Date(y, m, d + (mapping[tutorial.day] - date.getDay()), end_time[0], end_time[1], 0),
         color: "blue"
@@ -138,7 +155,7 @@ function construct_time_event(object){
     end_time = get_time(lab_time[1]);
     events.push(
       {
-        title: "Lab " + id,
+        title: "Lab " + name,
         start: new Date(y, m, d + (mapping[lab.day] - date.getDay()), start_time[0], start_time[1], 0),
         end: new Date(y, m, d + (mapping[lab.day] - date.getDay()), end_time[0], end_time[1], 0),
         color: "green"

@@ -9,17 +9,15 @@ Rails.application.routes.draw do
 
   get 'students/:id', to: 'students#show'
   get 'students/:id/registration', to: 'students#registration'
-
   get 'schedulers/mysequence'
   resources :mysequence
 
   match 'contacts', to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]
 
-  match "scheduler_generator/preference_generator", to: "scheduler_generator#preference_generator", via: :get
-
-
-
+  match "/scheduler_generator/preference_generator", to: "scheduler_generator#preference_generator", via: :get
+  match "/scheduler_generator/select_a_schedule", to: "scheduler_generator#select_a_schedule", via: :get
+  match '/scheduler_generator/student_registered_courses', to: 'scheduler_generator#student_registered_courses', via: :get
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

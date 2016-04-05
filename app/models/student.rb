@@ -2,6 +2,7 @@ class Student < ActiveRecord::Base
   has_secure_password
 
   has_many :student_records
+  has_many :student_courses
   before_save { |student| student.email = email.downcase}
   before_save :create_remember_token
 
@@ -32,6 +33,17 @@ class Student < ActiveRecord::Base
   end
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def get_student_courses
+    current_courses = []
+    student_courses = self.student_courses
+    student_courses.each do |course|
+      current_course = CurrentCourse.find_by_id(course.current_course_id)
+      current_courses.append({location: current_course.location, professor: current_course.professor, course_name: current_course.get_course_id, lecture:{day: course.lecture_day, time: course.lecture_time},
+                              tutorial: {day: course.tutorial_day, time: course.tutorial_time}, lab: {day: course.lab_day, time: course.lab_time}})
+    end
+    return current_courses
   end
 
   private

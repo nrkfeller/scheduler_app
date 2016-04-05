@@ -39,7 +39,7 @@ class SchedulerGenerator
   def self.is_conflict?(course1, course2)
     course1.each do |key1, value1|
       course2.each do |key2, value2|
-        if value1 and value2 and !(key1 == :course_id or key2 == :course_id)
+        if value1 and value2 and !(key1 == :course_id or key2 == :course_id) and !(key1 == :course_name or key2== :course_name)
           if same_day?(value1[:day], value2[:day])
             return true if conflict_time?(value1[:time], value2[:time])
           end

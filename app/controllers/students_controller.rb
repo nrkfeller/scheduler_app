@@ -20,15 +20,20 @@ class StudentsController < ApplicationController
 
 
   def show
-    @student = Student.find_by_id(params[:id])
+    @student = current_student
     @student_record = @student.get_record
     @department = "Software Engineering"
     @courses = @student.get_course_sequence
+    @registered_courses = @student.get_student_courses
+
   end
+
+  
 
   def registration
     @current_courses = CurrentCourse.all
   end
+
 
   private
     def student_params

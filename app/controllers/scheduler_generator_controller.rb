@@ -28,4 +28,24 @@ class SchedulerGeneratorController < ApplicationController
     end
     render json: options
   end
+
+
+  def select_a_schedule
+    @student = current_student
+    selected_courses = params["selected"]
+    StudentCourse.destroy_all(student_id: @student.id)
+    selected_courses.each do |key, value|
+      StudentCourse.create(student_id: @student.id, current_course_id: value["course_id"].to_i, lecture_day: value["lecture"]["day"],
+                            lecture_time: value["lecture"]["time"], tutorial_day: value["tutorial"]["day"],
+                            tutorial_time: value["tutorial"]["time"], lab_day: value["lab"]["day"], lab_time: value["lab"]["time"])
+    end
+    redirect_to student_url(@student.id)
+  end
+
+  def student_registered_courses
+
+    @student = current_student
+    @registered_courses = @student.get_student_courses
+    render json: @registered_courses
+  end
 end
