@@ -30,7 +30,14 @@ function click_event(){
         url: "/scheduler_generator/select_a_schedule",
         method: "GET",
         dataType: "json",
-        data: {selected: selected_data}
+        data: {selected: selected_data},
+        success: function(data){
+          url = window.location.href.split("/")
+          url = url.splice(0, url.length -1)
+          url = url.join("/")
+          console.log(url)
+          $(location).attr('href', url)
+        }
       });
     });
   })

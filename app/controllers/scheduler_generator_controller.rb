@@ -39,7 +39,7 @@ class SchedulerGeneratorController < ApplicationController
                             lecture_time: value["lecture"]["time"], tutorial_day: value["tutorial"]["day"],
                             tutorial_time: value["tutorial"]["time"], lab_day: value["lab"]["day"], lab_time: value["lab"]["time"])
     end
-    redirect_to student_url(@student.id)
+    render json: ["window.location ='studetns/#{@student.id}'"]
   end
 
   def student_registered_courses
