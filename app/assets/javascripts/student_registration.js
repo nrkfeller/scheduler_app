@@ -13,17 +13,19 @@ function handle_student_registration_page(){
 function click_event(){
   var option = $($("#course-schedule-section").find(".schedule-options h1").next())
 
-  option.mouseenter(function(){
+  option.off().mouseenter(function(){
     var id = $(this).attr("id").split("-")
     var num = parseInt(id[id.length -1])
     selected_data = test[num]
     var text = $(this).prev().text();
     $(this).css("background","#ADD8E6")
     $(this).prev().text("Double Click To Select The Schedule");
+    console.log(3)
     $(this).mouseleave(function(){
+      console.log(3)
       $(this).prev().text(text);
       $(this).css("background", "white")
-    })
+    });
     $(this).off().dblclick(function(){
       console.log(selected_data)
       $.ajax({
