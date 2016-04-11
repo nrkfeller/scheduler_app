@@ -19,7 +19,7 @@ function tables_initialization(){
     paging: false
   });
 
-  $('#student-record-table table').hide()
+  $('#student-record-table').hide()
   $('#student-course-sequence-table').hide()
 }
 var test = []
