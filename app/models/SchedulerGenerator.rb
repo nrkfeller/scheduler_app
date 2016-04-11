@@ -137,6 +137,7 @@ class SchedulerGenerator
   end
 
   def self.course_satisfy_preference?(preference, course)
+
     unless course.location == "Online"
       course_day = course.lecture_day.split(" - ")
       course_end_time = translate_time(course.lecture_time.split(" - ").last)
@@ -149,26 +150,31 @@ class SchedulerGenerator
         return false
       end
     end
-
+    tutorial_bool = false
     if course.tutorial_day
       tutorial_day = course.tutorial_day.split(" or ").map{ |day| preference.day[day.downcase.to_sym]}
       tutorial_time = course.tutorial_time.split(" or ").map{ |time| preference.time[translate_time(time.split(" - ").last).to_sym]}
       for i in 0..(tutorial_day.size() -1)
-        unless tutorial_day[i] and tutorial_time[i]
-          return false
+        if tutorial_day[i] and tutorial_time[i]
+          tutorial_bool = true
         end
       end
+    else
+      tutorial_bool = true
     end
+    lab_bool = false
     if course.lab_day
       lab_day = course.lab_day.split(" or ").map{ |day| preference.day[day.downcase.to_sym]}
       lab_time = course.lab_time.split(" or ").map{ |time| preference.time[translate_time(time.split(" - ").last).to_sym]}
       for i in 0..(lab_day.size() -1)
         unless lab_day[i] and lab_time[i]
-          return false
+          lab_bool = true
         end
       end
+    else
+      lab_bool = true
     end
-    return true
+    return (tutorial_bool and lab_bool)
   end
 
   def self.translate_time(time)
