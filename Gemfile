@@ -38,5 +38,6 @@ group :test do
 end
 
 group :production do
-  #gem 'pg'
+  ruby '2.1.5'
+  gem 'pg'
 end
