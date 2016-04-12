@@ -24,7 +24,7 @@ RSpec.feature "User sign in" do
         
         click_link "Registration"
         expect(page).to have_content("Day option")
-        expect(page).to have_select('weekday-selection', :options=> ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"])
+        expect(page).to have_select('weekday-selection', with_options: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"])
     end
     
         scenario "when not signed in " do

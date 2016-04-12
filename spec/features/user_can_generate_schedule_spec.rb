@@ -23,8 +23,10 @@ RSpec.feature "User sign in" do
         expect(page).to have_content("Signed in as John")
         click_link "Registration"
         expect(page).to have_content("Day option")
+        fill_in 'number-of-class-option', :with => '2'
         click_button "Submit"
-        expect(page).to have_content("Option")
+        expect(page).to have_css('div#course-schedule-section')
+
     end
         scenario "with invalid credentials" do
         visit "/"

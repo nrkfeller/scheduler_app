@@ -24,7 +24,7 @@ RSpec.feature "User sign in" do
         
         click_link "Registration"
         expect(page).to have_content("Time option")
-        expect(page).to have_select('time-selection', :options=> ["Morning", "Afternoon", "Evening"])
+        expect(page).to have_select('time-selection', with_options: ["Morning", "Afternoon", "Evening"])
     end
     
         scenario "when not signed in " do
