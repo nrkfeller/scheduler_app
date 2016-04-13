@@ -189,3 +189,6 @@ functions where preferenceGenerate will require information of type Preference
 whereas the other wont. Both will have to get information from currentCourse and
 Student. The output generated will be of type Schedule which is an aggregation
 of currentCourse objects.  
+
+
+Daniel Makardich
