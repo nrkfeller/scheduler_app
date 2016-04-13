@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'sqlite3'
