@@ -40,5 +40,5 @@ end
 
 group :production do
   ruby '2.1.5'
-  gem 'pg'
+  gem 'pg', '~> 0.18.4'
 end
