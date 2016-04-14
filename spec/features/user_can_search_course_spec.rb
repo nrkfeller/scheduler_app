@@ -23,8 +23,7 @@ RSpec.feature "User sign in" do
         expect(page).to have_content("Signed in as John")
         click_link "Registration"
         expect(page).to have_content("Day option")
-        
-        fill_in 'DataTables_Table_13_filter', :with => 'Chem 221'
+        fill_in "Search:", with: "Chem 221"
         expect(page).to have_content("CC 310 LOY")
         
         
